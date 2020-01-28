@@ -8,12 +8,19 @@ namespace sypht_progress_pie
 	{		
 		public const string White = "white";
 		public const string Black = "black";
-		const int Center = 50;
+		const int Radius = 50;
 
 		public string Calculate(double percentage, int x, int y)
 		{
-			var adjustedX = x - Center;
-			var adjustedY = y - Center;
+			var adjustedX = x - Radius;
+			var adjustedY = y - Radius;
+
+			var calculatedRadious = Math.Sqrt(Math.Pow(adjustedX, 2) + Math.Pow(adjustedY, 2));
+
+			if (calculatedRadious > Radius)
+			{
+				return White;
+			}
 
 			var quarter = CalculateQuarter(adjustedX, adjustedY);
 			var angleBasedOnPercentage = Math.Round(percentage * 360 / 100);
@@ -41,8 +48,8 @@ namespace sypht_progress_pie
 
 		private int CalculateQuarter(int x, int y)
 		{
-			var adjustedX = x - Center;
-			var adjustedY = y - Center;
+			var adjustedX = x - Radius;
+			var adjustedY = y - Radius;
 
 			if (x > 0)
 			{

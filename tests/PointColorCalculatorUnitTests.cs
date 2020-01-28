@@ -12,7 +12,7 @@ namespace tests
 		[InlineData(0, 55, 55, White)]
 		[InlineData(12, 55, 55, White)]
 		[InlineData(13, 55, 55, Black)]
-		[InlineData(99, 99, 99, Black)]
+		[InlineData(99, 99, 99, White)]
 		[InlineData(87, 20, 40, Black)]
 		public void Calculate_WorksCorrectly(double percentage, int x, int y, string expectedResult)
 		{
